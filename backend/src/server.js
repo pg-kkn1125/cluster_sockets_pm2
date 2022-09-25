@@ -11,7 +11,7 @@ pm2.list((err, list) => {
   // console.log(err, list);
   process.send("ready");
   getWorkers(list);
-  sendMessage("db", "test");
+  sendMessage("db", { from: "main", message: "test" });
 
   pm2.restart("api", (err, proc) => {
     // Disconnects from PM2
@@ -19,7 +19,7 @@ pm2.list((err, list) => {
   });
 });
 
-process.on("message", function (packet) {
+process.on("process:msg", function (packet) {
   console.log(`main packet`, packet);
   process.send({
     type: "process:msg",

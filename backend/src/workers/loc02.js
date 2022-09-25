@@ -1,9 +1,9 @@
 const { returnMsg } = require("../utils/tools");
 
-// sendMessage로 보내면 아래 메세지 이벤트로 받음
+// receive 서버에서 받는 곳
 process.on("message", (packet) => {
   // process.on은 워커를 반환한다.
-  console.log(`[DB 서버에서 받은 패킷 메세지] : `, packet);
+  console.log("[LOC02 서버에서 받은 패킷 메세지]: ", packet);
   returnMsg(packet);
 });
 

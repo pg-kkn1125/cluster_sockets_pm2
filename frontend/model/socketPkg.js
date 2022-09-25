@@ -21,7 +21,7 @@ names
   .filter((_) => _)
   .forEach((name, idx) => {
     socketMap[name] = new Sockets(name, 3000);
-    console.log(socketMap[name]);
+    // console.log(socketMap[name]);
     socketMap[name].setupSocket();
   });
 

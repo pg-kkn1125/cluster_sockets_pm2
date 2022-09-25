@@ -23,6 +23,8 @@ var workers = new IndexedMap();
 const getWorkers = (clusters) => {
   clusters.forEach((worker) => {
     workers.set(worker.name, worker);
+
+    // worker.postMessage("test callback message");
   });
 
   return workers;

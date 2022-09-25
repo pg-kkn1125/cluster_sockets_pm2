@@ -22,7 +22,7 @@ const watchOptions = {
 };
 
 const statusOptions = {
-  // max_memory_restart: "300M", // process memory가 300mb에 도달하면 reload 실행
+  max_memory_restart: "300M", // process memory가 300mb에 도달하면 reload 실행
   // wait_ready: true, // 마스터 프로세스에게 ready 이벤트를 기다리라는 의미
   // listen_timeout: 50000, // ready 이벤트를 기다릴 시간값(ms)을 의미
   // kill_timeout: 5000, // 새로운 요청을 더 이상 받지 않고 연결되어 있는 요청이 완료된 후 해당 프로세스를 강제로 종료하도록 처리
