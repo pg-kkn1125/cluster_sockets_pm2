@@ -8,7 +8,7 @@
   "description": "",
   "scripts": {
     "serve": "nodemon --watch ./ server.js",
-    "start": "pm2 start ecosystem.config.js --env production",
+    "start": "pm2 save && pm2 start ecosystem.config.js --env production",
     "restart": "pm2 restart ecosystem.config.js --env production",
     "reload": "pm2 reload ecosystem.config.js --env production",
     "stop": "pm2 stop ecosystem.config.js --env production",
@@ -27,7 +27,15 @@
     "http": "^0.0.1-security",
     "os": "^0.1.2",
     "pm2": "^5.2.0",
-    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.10.0"
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.10.0",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "express-session": "^1.17.3",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {}
 }

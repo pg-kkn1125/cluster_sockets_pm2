@@ -29,6 +29,7 @@ const handleSendServer = (e) => {
   const data = {
     from: names[num - 1],
     data: { name: "kimson", age: 25, gender: 1 },
+    query: names[num - 1] === "db" ? "findAllUser" : "",
   };
   const encodedBinaryData = encodeData(data);
   const socketname = names[num - 1];

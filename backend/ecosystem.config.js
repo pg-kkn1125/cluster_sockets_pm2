@@ -62,6 +62,15 @@ module.exports = {
       ...envOptions,
     },
     {
+      name: "loc02", // 앱 이름
+      script: "src/workers/loc02.js", // 스크립트 파일 위치
+      instances: 1, // 0 | "max" = CPU 코어 수 만큼 프로세스를 생성
+      watch: ["./"],
+      ...statusOptions,
+      ...watchOptions,
+      ...envOptions,
+    },
+    {
       name: "db", // 앱 이름
       script: "src/workers/dbWorker.js", // 스크립트 파일 위치
       instances: 1, // 0 | "max" = CPU 코어 수 만큼 프로세스를 생성

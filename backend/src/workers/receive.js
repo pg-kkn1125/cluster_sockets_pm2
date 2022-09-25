@@ -1,7 +1,9 @@
 const uws = require("uWebSockets.js");
+const IndexedMap = require("../utils/IndexedMap");
 const { convertResponseData, sendMessage } = require("../utils/tools");
 const { servers } = require("../utils/variables");
 let isDisableKeepAlive = false;
+// let wsServers = new IndexedMap();
 
 /**
  * 전체 서버에서 데이터 받을 수 있음
@@ -22,7 +24,9 @@ const receiveSrever = uws
       }
       servers.forEach((server) => {
         ws.subscribe(server);
+        // wsServers.set(server, ws);
       });
+      // console.log(wsServers)
       ws.send("socket server loaded!");
     },
     message(ws, message, isBinary) {
@@ -30,7 +34,7 @@ const receiveSrever = uws
       const json = JSON.parse(data);
       console.log(json);
       const callback = (result) => {
-        ws.send(JSON.stringify(result));
+        ws.send(JSON.stringify(result.data));
       };
       sendMessage(json.from, json, callback);
     },
@@ -57,6 +61,10 @@ const receiveSrever = uws
 // sendMessage로 보내면 아래 메세지 이벤트로 받음
 process.on("message", (packet) => {
   console.log(`[RECEIVE 서버에서 받은 패킷 메세지] : `, packet);
+  // console.log(wsServers.get(packet.data.from));
+  // wsServers.get(packet.data.from).send(JSON.stringify(packet).data);
+  console.log(packet);
+  receiveSrever.publish(packet.data.from, JSON.stringify(packet));
   process.send({
     type: "process:msg",
     data: {

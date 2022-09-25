@@ -6,7 +6,7 @@ const IndexedMap = require("./IndexedMap");
 const servers = [
   "receive",
   "loc01",
-  // "loc02",
+  "loc02",
   // "loc03",
   // "loc04",
   // "loc05",

@@ -40,10 +40,10 @@ class Sockets {
       if (e.data.startsWith("{")) {
         json = JSON.parse(e.data);
         // 서버로부터 데이터 뿌리는 부분
-        if (json.data.data.hasOwnProperty("to")) {
-          index = names.findIndex((value) => value === json.data.data.to);
+        if (json.data.hasOwnProperty("to")) {
+          index = names.findIndex((value) => value === json.data.to);
         } else {
-          index = names.findIndex((value) => value === json.data.data.from);
+          index = names.findIndex((value) => value === json.data.from);
         }
       }
       if (index > -1) {
